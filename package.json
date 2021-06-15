@@ -21,7 +21,7 @@
   "homepage": "https://github.com/IndexXuan/vite-plugin-mpa",
   "repository": {
     "type": "git",
-    "url": "git@github.com:IndexXuan/vite-plugin-mpa.git"
+    "url": "git@github.com:patarapolw/vite-plugin-mpa.git"
   },
   "keywords": [
     "vite-plugin",
