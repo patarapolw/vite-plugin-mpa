@@ -59,6 +59,14 @@ export default function mpa(userOptions: UserOptions = {}): Plugin {
       shell.mv(resolve(`${dest}/${options.scanDir}/*`), resolve(dest))
       // 4. remove empty src dir
       shell.rm('-rf', resolve(`${dest}/src`))
+
+      // 5. move index/index.html to index.html, if necessary
+      if (
+        !shell.test('-f', resolve(`${dest}/index.html`)) &&
+        shell.test('-f', resolve(`${dest}/index/index.html`))
+      ) {
+        shell.mv(resolve(`${dest}/index/index.html`), resolve(`${dest}/index.html`))
+      }
     },
   }
 }
