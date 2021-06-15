@@ -27,7 +27,7 @@ export function getFirstPage(pages: Record<string, string>): string {
  */
 function genFileName(pageName: string, path: string): string {
   const xPath = path === '' ? '' : `${path}/`
-  return `${xPath}${pageName}.html`.replace(/^pages\//, '')
+  return `${xPath}${pageName}.html`.replace(/^pages\//, '').replace(/^index\//, '')
 }
 
 /**

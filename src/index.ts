@@ -3,7 +3,7 @@ import type { UserOptions } from './lib/options'
 import history from 'connect-history-api-fallback'
 import path from 'path'
 import shell from 'shelljs'
-import { getMPAIO, getHistoryReWriteRuleList, getFirstPage } from './lib/utils'
+import { getMPAIO, getHistoryReWriteRuleList } from './lib/utils'
 import { name } from '../package.json'
 
 export default function mpa(userOptions: UserOptions = {}): Plugin {
@@ -30,8 +30,6 @@ export default function mpa(userOptions: UserOptions = {}): Plugin {
       config.build = config.build || {}
       config.build.rollupOptions = config.build.rollupOptions || {}
       config.build.rollupOptions.input = getMPAIO(config.root || process.cwd(), options)
-      config.server = config.server || {}
-      config.server.open = options.open || getFirstPage(config.build.rollupOptions.input)
     },
     configureServer({ middlewares: app }) {
       app.use(
