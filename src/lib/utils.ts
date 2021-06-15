@@ -49,16 +49,20 @@ function parseEntryFile(file: string, filters: string[] = []) {
 /**
  * @private
  */
-function parseFiles(files: string[], defaultEntries: string) {
+function parseFiles(files: string[], defaultEntries: MpaOptions['defaultEntries']) {
   // support --entry & --file & --page to filter
   const args: string =
     (argv.entry as string) || (argv.file as string) || (argv.page as string) || ''
   if (args === '') {
-    defaultEntries = ''
+    defaultEntries = []
   }
+  if (defaultEntries && typeof defaultEntries === 'string') {
+    defaultEntries = [defaultEntries]
+  }
+
   const filters = args
     .split(',')
-    .concat(defaultEntries.split(','))
+    .concat(defaultEntries)
     .filter(_ => _)
   const ret = files.map(file => parseEntryFile(file, filters))
   return {

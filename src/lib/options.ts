@@ -4,12 +4,6 @@
 
 export interface MpaOptions {
   /**
-   * open path for viteDevServer
-   * this plugin will try to open first page for you, but you can still custom, e.g. /index#/about
-   * @default firstPagePath
-   */
-  open: string
-  /**
    * where to scan
    * @default 'src/pages'
    */
@@ -26,9 +20,9 @@ export interface MpaOptions {
   filename: string
   /**
    * default included entry
-   * @default ''
+   * @optional
    */
-  defaultEntries: string
+  defaultEntries: string | string[]
 }
 
 export type UserOptions = Partial<MpaOptions>

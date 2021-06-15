@@ -1,5 +1,5 @@
 import type { Plugin, UserConfig } from 'vite'
-import type { UserOptions } from './lib/options'
+import type { MpaOptions, UserOptions } from './lib/options'
 import history from 'connect-history-api-fallback'
 import path from 'path'
 import shell from 'shelljs'
@@ -7,11 +7,10 @@ import { getMPAIO, getHistoryReWriteRuleList } from './lib/utils'
 import { name } from '../package.json'
 
 export default function mpa(userOptions: UserOptions = {}): Plugin {
-  const options = {
-    open: '',
+  const options: MpaOptions = {
     scanDir: 'src/pages',
     scanFile: 'main.{js,ts,jsx,tsx}',
-    defaultEntries: '',
+    defaultEntries: [],
     filename: 'index.html',
     ...userOptions,
   }
