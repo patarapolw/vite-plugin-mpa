@@ -78,5 +78,8 @@
     "**/**.{ts,js,json}": [
       "prettier --write"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
